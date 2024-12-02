@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue Mastery</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Navigation Bar -->
+      <div class="nav-bar"></div>
+      <!-- Header with name -->
+      <h1>Lê Nguyễn Vũ Duy - GCD220076</h1>
+      <!-- Cart Display -->
+      <div class="cart">Cart({{ cart }})</div>
+      <!-- Product Display Section -->
+      <div class="product-display">
+        <div class="product-container">
+          <!-- Product Image -->
+          <div class="product-image">
+            <img v-bind:src="image" />
+          </div>
+          <div class="product-info">
+            <!-- Product Name -->
+            <h1>{{ product }}</h1>
+            <!-- Stock Status (Conditional Rendering) -->
+            <p v-if="inStock">In Stock</p>
+            <p v-else>Out of Stock</p>
+            <!-- List of Product Details -->
+            <ul>
+              <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+            <!-- List of Product Variants with Mouseover Event -->
+            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">
+              {{ variant.color }}
+            </div>
+            <!-- Add and Remove Cart Buttons -->
+            <button class="button" v-on:click="addToCart">Add to Cart</button>
+            <button class="button" v-on:click="removeFromCart">Remove from Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Import App Logic -->
+    <script src="./main.js"></script>
+    <!-- Mount Vue.js Application -->
+    <script>
+      const mountedApp = app.mount('#app');
+    </script>
+  </body>
+</html>

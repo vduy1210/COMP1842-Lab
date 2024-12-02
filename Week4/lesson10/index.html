@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue Mastery</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <!-- Vue app container -->
+    <div id="app">
+      <!-- Navigation bar placeholder -->
+      <div class="nav-bar"></div>
+      <!-- Cart display showing the number of items in the cart -->
+      <div class="cart">Cart({{ cart.length }})</div>
+      <!-- Product display component with premium prop and event listeners for adding and removing items from the cart -->
+      <product-display 
+        :premium="premium" 
+        @add-to-cart="updateCart" 
+        @remove-from-cart="removeCart">
+      </product-display>
+    </div>
+    <!-- Import App -->
+    <script src="./main.js"></script>
+    <!-- Import ProductDisplay Component -->
+    <script src="./components/ProductDisplay.js"></script>
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+  </body>
+</html>

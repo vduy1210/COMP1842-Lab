@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue Mastery</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <!-- Import Vue.js library -->
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <!-- Vue app root element -->
+    <div id="app">
+      <!-- Navigation Bar -->
+      <div class="nav-bar"></div>
+      <!-- Product Display Section -->
+      <div class="product-display">
+        <div class="product-container">
+          <!-- Product Image -->
+          <div class="product-image">
+            <!-- Bind the image source to the Vue instance's 'image' data property -->
+            <img v-bind:src="image">
+          </div>
+          <!-- Product Information -->
+          <div class="product-info">
+            <!-- Display the product name from the Vue instance's 'product' data property -->
+            <h1>{{ product }}</h1>
+            <!-- Bind the href attribute to the Vue instance's 'url' data property -->
+            <a :href="url">Made by Lê Nguyễn Vũ Duy-Gcd220076</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Import the main JavaScript file for the Vue app -->
+    <script src="./main.js"></script>
+    <!-- Mount the Vue app to the #app element -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+  </body>
+</html>

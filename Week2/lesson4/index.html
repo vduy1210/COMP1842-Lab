@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Set the charset for the webpage to UTF-8 for supporting special characters -->
+    <meta charset="UTF-8" />   
+    <!-- Title of the webpage -->
+    <title>Vue Mastery</title> 
+    <!-- Link to an external CSS file to style the webpage -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <!-- Include Vue.js from the CDN to use it in the application -->
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <!-- This div will serve as the mount point for the Vue application -->
+    <div id="app">
+      <!-- Navigation bar section of the webpage -->
+      <div class="nav-bar"></div>     
+      <!-- Product display section -->
+      <div class="product-display">
+        <div class="product-container">         
+          <!-- Section to display the product image -->
+          <div class="product-image">
+            <!-- Bind the 'src' attribute of the image to the 'image' data in Vue -->
+            <img v-bind:src="image">
+          </div>
+          <!-- Section to display the product information -->
+          <div class="product-info">
+            <!-- Display the product name from Vue data -->
+            <h1>{{ product }}</h1>
+            <!-- Conditional rendering of stock status -->
+            <!-- If inventory is greater than 10, show "In Stock" -->
+            <p v-if="inventory > 10">In Stock</p>
+            <!-- If inventory is between 1 and 10, show "Almost sold out" -->
+            <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out</p>
+            <!-- If inventory is 0, show "Out of Stock" -->
+            <p v-else>Out of Stock</p>
+            <!-- If the product is on sale, show "On Sale" -->
+            <p v-if="onSale">On Sale</p>
+            <!-- Display the shop steward's information -->
+            <p>shop steward: Lê Nguyễn Vũ Duy - GCD220076 </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include the main JavaScript file for Vue app logic -->
+    <script src="./main.js"></script>
+    <!-- Mount the Vue app to the element with id="app" -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+  </body>
+</html>
